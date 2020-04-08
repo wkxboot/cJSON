@@ -202,7 +202,7 @@ static int supports_full_hd(const char * const monitor)
             goto end;
         }
 
-        if ((width->valuedouble == 1920) && (height->valuedouble == 1080))
+        if (compare_double(width->valuedouble, 1920) && compare_double(height->valuedouble, 1080))
         {
             status = 1;
             goto end;
@@ -246,7 +246,7 @@ static void supports_full_hd_should_check_for_full_hd_support(void)
     TEST_ASSERT_FALSE(supports_full_hd(monitor_without_hd));
 }
 
-int main(void)
+int CJSON_CDECL main(void)
 {
     UNITY_BEGIN();
 
